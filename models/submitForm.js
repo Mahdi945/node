@@ -1,39 +1,39 @@
-// emailService.js
+const mongoose = require('mongoose');
 
-const nodemailer = require('nodemailer');
+const submitFormSchema = new mongoose.Schema({
+    nomSociete: {
+        type: String,
+        required: true
+    },
+    telephone: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    adresseSociete: {
+        type: String,
+        required: false
+    },
+    typeMachine: {
+        type: String,
+        required: true
+    },
+    refMachine: {
+        type: String,
+        required: true
+    },
+    descriptionPanne: {
+        type: String,
+        required: false
+    },
+    
+});
 
-async function sendFormDataByEmail(formData) {
-    try {
-        // Configurer le transporteur Nodemailer avec vos identifiants Gmail
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'mahdibeyy@gmail.com',
-                pass: 'arhmcywiuwkbklqq'}
-        });
+const SubmitForm = mongoose.model('SubmitForm', submitFormSchema);
 
-        // Options de l'e-mail
-        const mailOptions = {
-            from: 'mahdibeyy@gmail.com',
-            to: 'mongi.bey@gmail.com',
-            subject: 'Nouvelle soumission de formulaire',
-            html: `
-                <p><strong>Nom de la société:</strong> ${formData.nomSociete}</p>
-                <p><strong>Numéro ou Email:</strong> ${formData.NumOuEmail}</p>
-                <p><strong>Type de machine:</strong> ${formData.typeMachine}</p>
-                <p><strong>Référence de la machine:</strong> ${formData.refMachine}</p>
-                <p><strong>Description de la panne:</strong> ${formData.DescriptionPanne}</p>
-                <p><strong>Photo de la panne:</strong> ${formData.photoPanne}</p>
-            `
-        };
+module.exports = SubmitForm;
 
-        // Envoyer l'e-mail
-        const info = await transporter.sendMail(mailOptions);
-        console.log('E-mail sent:', info.response);
-    } catch (error) {
-        console.error('Error sending email:', error);
-        throw error; // Propagez l'erreur pour la gérer dans votre route
-    }
-}
 
-module.exports = sendFormDataByEmail;
