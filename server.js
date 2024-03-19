@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 // Utilisation de la route pour gérer les formulaires
 app.use('/submitForm', submitFormRoute);
 
-const PORT = process.env.PORT || 3000; // Utilisez le port spécifié dans les variables d'environnement ou le port 3000 par défaut
+const PORT = process.env.PORT || 3000; 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
