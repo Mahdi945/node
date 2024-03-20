@@ -22,13 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/submitForm', submitFormRoute);
-// Servir les fichiers statiques de l'application Angular
-app.use(express.static(path.join(__dirname, 'D:\\D_Documents\\Angular\\CNC_Project\\cncs\\dist\\cncs')));
 
-// Rediriger toutes les autres routes vers l'index.html de l'application Angular
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'D:\\D_Documents\\Angular\\CNC_Project\\cncs\\dist\\cncs\\index.html'));
-});
 
 
 
