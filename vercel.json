@@ -2,9 +2,8 @@
   "version": 2,
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/submitForm/ajout",
       "dest": "/server.js"
     }
   ]
 }
-
