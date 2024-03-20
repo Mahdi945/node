@@ -10,10 +10,7 @@
     {
       "src": "/submitForm/ajout",
       "dest": "/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
     }
+   
   ]
 }
