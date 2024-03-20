@@ -8,7 +8,7 @@ const submitFormRoute = require('./routes/submitForm.js');
 
 const app = express();
 
-
+app.use(cors()); // Autoriser toutes les requêtes CORS
 // Ajouter middleware pour gérer CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Permettre à tous les domaines d'accéder à l'API (à ajuster en fonction de vos besoins de sécurité)
