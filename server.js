@@ -21,7 +21,7 @@ app.use('/submitForm', submitFormRoute);
 
 // Redirige toutes les routes non trouvées vers votre application Angular
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'D_Documents/Angular/CNC_Project/cncs/index.html'));
+    res.sendFile(path.join(__dirname, '../Angular/CNC_Project/cncs/index.html'));
 });
 
 
