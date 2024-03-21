@@ -23,13 +23,7 @@ app.use(bodyParser.json());
 
 app.use('/submitForm', submitFormRoute);
 
-// Servir les fichiers statiques de l'application Angular
-app.use(express.static(path.join(__dirname, '../Angular/CNC_Project/cncs/dist/cncs')));
 
-// Gestion des routes inconnues
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Angular/CNC_Project/cncs/dist/cncs/index.html'));
-});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
