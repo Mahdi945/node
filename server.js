@@ -23,11 +23,6 @@ app.use(bodyParser.json());
 
 app.use('/submitForm', submitFormRoute);
 
-// Rediriger toutes les autres routes vers l'index.html de l'application Angular
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Angular/CNC_Project/cncs/src/index.html'));
-});
-
 
 
 const PORT = process.env.PORT || 3000;
