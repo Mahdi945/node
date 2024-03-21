@@ -17,12 +17,14 @@ app.use(bodyParser.json());
 
 app.use('/submitForm', submitFormRoute);
 
+// Serve les fichiers statiques du dossier "dist" de votre application Angular
+app.use(express.static(path.join(__dirname, 'dist')));
 
-
-// Pour toutes les autres requêtes, renvoyer l'index.html, où Angular gère les routes
+// Redirige toutes les routes non trouvées vers votre application Angular
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/index.html')); // Remplacez 'your-angular-app' par le nom de votre application Angular
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
