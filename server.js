@@ -1,17 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const path = require('path');
+
 const mongoose = require('./config/connect.js');
 
 const submitFormRoute = require('./routes/submitForm.js');
 
 const app = express();
 
-app.use(cors({
-    origin: 'https://projet-murex-delta.vercel.app',
-    credentials: true // Si votre application envoie des cookies avec les requêtes
-  }));
+app.use(cors()); // Autoriser toutes les requêtes CORS
+// Ajouter middleware pour gérer CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Permettre à tous les domaines d'accéder à l'API (à ajuster en fonction de vos besoins de sécurité)
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Méthodes HTTP autorisées
