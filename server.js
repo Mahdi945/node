@@ -18,11 +18,11 @@ app.use(bodyParser.json());
 app.use('/submitForm', submitFormRoute);
 
 // Serve les fichiers statiques du dossier "dist" de votre application Angular
-app.use(express.static(path.join(__dirname, 'D:\\D_Documents\\Angular\\CNC_Project\\cncs\\dist')));
+app.use(express.static(path.join(__dirname, 'D_Documents/Angular/CNC_Project/cncs/dist')));
 
 // Redirige toutes les routes non trouvées vers votre application Angular
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'D:\\D_Documents\\Angular\\CNC_Project\\cncs\\dist\\index.html'));
+    res.sendFile(path.join(__dirname, 'D_Documents/Angular/CNC_Project/cncs/dist/index.html'));
 });
 
 
