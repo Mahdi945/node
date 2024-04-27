@@ -1,5 +1,4 @@
 {
-    "version": 2,
     "name": "cnc_back",
     "builds": [
       {
@@ -12,10 +11,10 @@
         "src": "/(.*)",
         "dest": "server.js",
         "headers": {
-          "Access-Control-Allow-Origin": "https://projet-murex-delta.vercel.app",
+          "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
-          "Access-Control-Allow-Headers": "X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Request-Headers"
+          "Access-Control-Allow-Headers": "X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization"
         }
       }
     ]
-  }
+}
