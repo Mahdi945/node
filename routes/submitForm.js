@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
-const SubmitForm = require('../models/submitForm.js');
+
 
 // Configuration du transporter Nodemailer pour l'envoi d'e-mails
 const transporter = nodemailer.createTransport({
