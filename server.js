@@ -6,7 +6,7 @@ const submitFormRoute = require('./routes/submitForm.js');
 const app = express();
 
 // Use CORS middleware
-app.use(cors({ origin: 'https://node-glqp.vercel.app' }));
+app.use(cors({ origin: 'https://projet-murex-delta.vercel.app' }));
 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
