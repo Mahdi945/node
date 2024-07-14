@@ -1,8 +1,6 @@
-// Import des modules nécessaires
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
-
 
 // Configuration du transporter Nodemailer pour l'envoi d'e-mails
 const transporter = nodemailer.createTransport({
@@ -19,18 +17,6 @@ router.post('/ajout', async (req, res) => {
     const { nomSociete, telephone, email, adresseSociete, typeMachine, refMachine, descriptionPanne } = req.body;
 
     try {
-        // Enregistrement des données dans MongoDB
-        const newFormData = new SubmitForm({
-            nomSociete,
-            telephone,
-            email,
-            adresseSociete,
-            typeMachine,
-            refMachine,
-            descriptionPanne
-        });
-        await newFormData.save();
-
         // Options de l'e-mail à envoyer
         const mailOptions = {
             from: 'mahdibeyy@gmail.com',
@@ -51,14 +37,11 @@ router.post('/ajout', async (req, res) => {
         const info = await transporter.sendMail(mailOptions);
         console.log('E-mail sent:', info.response);
 
-        // Affichage d'un message de confirmation dans la console
-        console.log('Formulaire ajouté avec succès :', newFormData);
-
-        // Réponse au client avec un message de succès(au node)
-        res.status(200).json({ message: 'Formulaire ajouté avec succès', formData: newFormData });
+        // Réponse au client avec un message de succès
+        res.status(200).json({ message: 'Formulaire ajouté avec succès' });
     } catch (error) {
         // Gestion des erreurs
-        console.error('Error adding form data:', error);
+        console.error('Error sending email:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });
