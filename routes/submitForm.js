@@ -20,7 +20,7 @@ router.post('/ajout', async (req, res) => {
         // Options de l'e-mail à envoyer
         const mailOptions = {
             from: 'mahdibeyy@gmail.com',
-            to: 'cncservice2018@gmail.com',
+            to: 'mongi.bey@gmail.com',
             subject: 'Nouvelle soumission de formulaire',
             html: `
                 <p><strong>Nom de la société:</strong> ${nomSociete}</p>
