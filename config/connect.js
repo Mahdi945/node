@@ -1,13 +1,17 @@
 // Import de Mongoose
 const mongoose = require('mongoose');
 
-// Connexion à la base de données MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/submitForm')
+mongoose.connect('mongodb+srv://mahdibeyy:xR9HVL1yY4SEK2HB@submitform.ezxf5pf.mongodb.net/?retryWrites=true&w=majority&appName=submitForm', {
+    
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+
+})
     .then(() => {
-         console.log('connected to db !');
+         console.log('connected to ATLAS !');
     })
-    .catch(() => {
-        console.log('error in connection');
+    .catch((error) => {
+        console.error('error in connection:', error);
     });
 
 // Export de l'objet Mongoose pour utilisation dans d'autres parties de l'application
