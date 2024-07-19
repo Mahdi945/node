@@ -2,9 +2,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://mahdibeyy:xR9HVL1yY4SEK2HB@submitform.ezxf5pf.mongodb.net/?retryWrites=true&w=majority&appName=submitForm', {
-    
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+
 
 })
     .then(() => {
