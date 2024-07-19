@@ -6,20 +6,14 @@ const mongoose = require('./config/connect.js'); // Importation de connect.js
 
 const app = express();
 
-// Configuration de CORS pour accepter plusieurs origines
-const allowedOrigins = ['https://projet-murex-delta.vercel.app', 'https://node-glqp.vercel.app'];
-
-app.use(cors({
-    origin: function (origin, callback) {
-        // Autoriser les requêtes sans origine (comme les requêtes mobiles ou curl)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) === -1) {
-            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-            return callback(new Error(msg), false);
-        }
-        return callback(null, true);
-    }
-}));
+app.use(cors()); // Autoriser toutes les requêtes CORS
+// Middleware personnalisé pour gérer CORS (à adapter en fonction de vos besoins de sécurité)
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Permettre à tous les domaines d'accéder à l'API
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Méthodes HTTP autorisées
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'); // En-têtes autorisés
+    next();
+});
 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
